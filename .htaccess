@@ -1,0 +1,52 @@
+# ============ АПОЛЛОНІЯ — apollonia.ua ============
+
+# Кастомна 404-сторінка
+ErrorDocument 404 /404.html
+
+# Відключити лістинг папок (щоб /assets/photos/ не показував список файлів)
+Options -Indexes
+
+# ============ КЕШУВАННЯ СТАТИКИ ============
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # Картинки — рік (хеш у назві файлу не використовуємо, але контент не міняється)
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+
+  # CSS/JS (немає окремих файлів, але про всяк випадок)
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+
+  # HTML — година (щоб правки доходили швидше)
+  ExpiresByType text/html "access plus 1 hour"
+
+  # XML (sitemap) — день
+  ExpiresByType application/xml "access plus 1 day"
+  ExpiresByType text/xml "access plus 1 day"
+</IfModule>
+
+# ============ GZIP-КОМПРЕСІЯ ============
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/xml text/plain
+  AddOutputFilterByType DEFLATE application/javascript application/xml application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# ============ БЕЗПЕКА ============
+<IfModule mod_headers.c>
+  # Заборонити вбудовування сайту в iframe (захист від clickjacking)
+  Header set X-Frame-Options "SAMEORIGIN"
+  # Заборонити MIME-sniffing
+  Header set X-Content-Type-Options "nosniff"
+  # Referrer policy для приватності
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Заборонити прямий доступ до прихованих файлів
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
