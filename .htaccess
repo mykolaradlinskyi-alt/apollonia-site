@@ -6,6 +6,19 @@ ErrorDocument 404 /404.html
 # Відключити лістинг папок (щоб /assets/photos/ не показував список файлів)
 Options -Indexes
 
+# ============ HTTP → HTTPS + www → apex ============
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Якщо запит прийшов по HTTP — редирект на HTTPS
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+  # www.apollonia.ua → apollonia.ua
+  RewriteCond %{HTTP_HOST} ^www\.apollonia\.ua$ [NC]
+  RewriteRule ^(.*)$ https://apollonia.ua/$1 [R=301,L]
+</IfModule>
+
 # ============ КЕШУВАННЯ СТАТИКИ ============
 <IfModule mod_expires.c>
   ExpiresActive On
@@ -38,6 +51,10 @@ Options -Indexes
 
 # ============ БЕЗПЕКА ============
 <IfModule mod_headers.c>
+  # HSTS — кажемо браузеру 30 днів пам'ятати, що сайт лише HTTPS.
+  # Підняти до 31536000 (рік) після того, як упевнимось, що все стабільно.
+  Header always set Strict-Transport-Security "max-age=2592000; includeSubDomains" env=HTTPS
+
   # Заборонити вбудовування сайту в iframe (захист від clickjacking)
   Header set X-Frame-Options "SAMEORIGIN"
   # Заборонити MIME-sniffing
