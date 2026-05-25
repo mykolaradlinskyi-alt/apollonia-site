@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>АПОЛЛОНІЯ — стоматологічна клініка-студія</title>
+<title>Стоматологія Полтава — клініка-студія АПОЛЛОНІЯ Сергія Радлінського</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -555,9 +555,12 @@
     font-size:11px;letter-spacing:.15em;text-transform:uppercase;
   }
   .msg-chip{
-    color:var(--saffron-deep);font-weight:500;
+    color:var(--saffron-deep);font-weight:500;text-decoration:none;
+    transition:color .15s;
   }
+  a.msg-chip:hover{color:var(--walnut);text-decoration:underline}
   .msg-dot{color:var(--line)}
+  .foot-soon{color:rgba(250,245,232,.4);font-size:13px;font-style:italic}
 
 
   /* ============ FOOTER ============ */
@@ -586,31 +589,50 @@
 <link rel="icon" type="image/png" sizes="64x64" href="assets/icons/favicon-64.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
 <meta name="theme-color" content="#C26A1A">
-<meta name="description" content="АПОЛЛОНІЯ — стоматологічна клініка-студія Сергія Радлінського в Полтаві. З 1996 року. Естетична реставрація, ендодонтія, протезування, хірургія.">
-<link rel="canonical" href="https://radlinsky.com/">
+<meta name="description" content="Стоматологічна клініка-студія АПОЛЛОНІЯ у Полтаві: художня реставрація зубів, ендодонтія під мікроскопом, протезування. Понад 30 років практики Сергія Радлінського. ☎ запис.">
+<link rel="canonical" href="https://apollonia.ua/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="АПОЛЛОНІЯ — стоматологічна клініка-студія">
-<meta property="og:description" content="Клініка-студія Сергія Радлінського в Полтаві. З 1996 року.">
-<meta property="og:url" content="https://radlinsky.com/">
-<meta property="og:image" content="https://radlinsky.com/assets/photos/facade.jpg">
+<meta property="og:site_name" content="АПОЛЛОНІЯ">
+<meta property="og:title" content="Стоматологія Полтава — клініка-студія АПОЛЛОНІЯ">
+<meta property="og:description" content="Художня реставрація зубів, ендодонтія під мікроскопом, протезування у Полтаві. Авторська методика Сергія Радлінського, з 1996 року.">
+<meta property="og:url" content="https://apollonia.ua/">
+<meta property="og:image" content="https://apollonia.ua/assets/photos/facade.jpg">
+<meta property="og:image:width" content="1100">
+<meta property="og:image:height" content="880">
 <meta property="og:locale" content="uk_UA">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Стоматологія Полтава — клініка-студія АПОЛЛОНІЯ">
+<meta name="twitter:description" content="Художня реставрація зубів, ендодонтія під мікроскопом у Полтаві. З 1996 року.">
+<meta name="twitter:image" content="https://apollonia.ua/assets/photos/facade.jpg">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Dentist",
   "name": "АПОЛЛОНІЯ",
   "alternateName": "Аполлонія — клініка-студія Сергія Радлінського",
-  "url": "https://radlinsky.com/",
-  "image": "https://radlinsky.com/assets/photos/facade.jpg",
+  "url": "https://apollonia.ua/",
+  "image": "https://apollonia.ua/assets/photos/facade.jpg",
+  "logo": "https://apollonia.ua/assets/logo/mark.png",
   "telephone": "+380504056565",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "вул. О. Оксанченка, 29",
     "addressLocality": "Полтава",
+    "addressRegion": "Полтавська область",
+    "postalCode": "36000",
     "addressCountry": "UA"
   },
-  "foundingDate": "1996"
+  "areaServed": [
+    {"@type": "City", "name": "Полтава"},
+    {"@type": "AdministrativeArea", "name": "Полтавська область"}
+  ],
+  "medicalSpecialty": ["Dentistry", "CosmeticDentistry", "Endodontics", "Periodontics", "Prosthodontics"],
+  "priceRange": "$$",
+  "foundingDate": "1996",
+  "founder": {
+    "@type": "Person",
+    "name": "Сергій Радлінський"
+  }
 }
 </script>
 </head>
@@ -619,7 +641,7 @@
 <!-- ============ TOP BAR ============ -->
 <header class="topbar">
   <div class="container topbar-inner">
-    <a href="#" class="logo">
+    <a href="/" class="logo">
       <img class="logo-mark" src="assets/logo/mark.png" alt="Логотип Аполлонія" width="360" height="298" decoding="async">
       <div class="logo-text">
         <img class="wordmark" src="assets/logo/wordmark.png" alt="АПОЛЛОНІЯ" width="420" height="69" decoding="async">
@@ -1049,11 +1071,11 @@
           <div class="key">Телефони</div>
           <a class="val val-primary" href="tel:+380504056565">+38 (050) 405-65-65</a>
           <div class="messengers">
-            <span class="msg-chip">Viber</span>
+            <a class="msg-chip" href="viber://chat?number=%2B380504056565" aria-label="Написати у Viber">Viber</a>
             <span class="msg-dot">·</span>
-            <span class="msg-chip">WhatsApp</span>
+            <a class="msg-chip" href="https://wa.me/380504056565" target="_blank" rel="noopener" aria-label="Написати у WhatsApp">WhatsApp</a>
             <span class="msg-dot">·</span>
-            <span class="msg-chip">Telegram</span>
+            <a class="msg-chip" href="https://t.me/+380504056565" target="_blank" rel="noopener" aria-label="Написати у Telegram">Telegram</a>
           </div>
           <a class="val val-secondary" href="tel:+380532508899">+38 (0532) 50-88-99</a>
           <a class="val val-secondary" href="tel:+380532613355">+38 (0532) 61-33-55</a>
@@ -1115,8 +1137,7 @@
         <a href="tel:+380504056565">+38 (050) 405-65-65</a>
         <a href="tel:+380532508899">+38 (0532) 50-88-99</a>
         <a href="mailto:clinic@apollonia.ua">clinic@apollonia.ua</a>
-        <a href="#">Instagram</a>
-        <a href="#">Facebook</a>
+        <span class="foot-soon">Instagram · Facebook — скоро</span>
       </div>
     </div>
     <div class="foot-bottom">
