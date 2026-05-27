@@ -6,9 +6,14 @@ ErrorDocument 404 /404.html
 # Відключити лістинг папок (щоб /assets/photos/ не показував список файлів)
 Options -Indexes
 
-# ============ HTTP → HTTPS + www → apex ============
+# ============ HTTP → HTTPS + www → apex + старі URL → hotel.apollonia.ua ============
 <IfModule mod_rewrite.c>
   RewriteEngine On
+
+  # Старі WordPress-URLи готелю → новий поддомен (зберігає SEO-вагу)
+  # Йде ПЕРШИМ, щоб HTTP-запит на старий URL ішов одним hop'ом на hotel.apollonia.ua
+  RewriteRule ^apollonia_hotel/?$ https://hotel.apollonia.ua/ [R=301,L]
+  RewriteRule ^apollonia_hotel/(.*)$ https://hotel.apollonia.ua/$1 [R=301,L]
 
   # Якщо запит прийшов по HTTP — редирект на HTTPS
   RewriteCond %{HTTPS} !=on
